@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 07_NavigacijaKrozNoveProgramskeJezikeIzazoviBarijereStrategijeSavladavanja_Baranin_Djekic_Magenhajm_Rsumovic.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Database file #1: seminarski.bib
+Warning--to sort, need author or key in programming_difficulties
+Warning--empty author in programming_difficulties
+Warning--empty journal in programming_difficulties
+Warning--empty year in programming_difficulties
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            500 strings with 4387 characters,
+and the built_in function-call counts, 188 in all, are:
+= -- 15
+> -- 1
+< -- 0
++ -- 1
+- -- 0
+* -- 16
+:= -- 30
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 3
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 10
+empty$ -- 19
+format.name$ -- 0
+if$ -- 36
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 7
+num.names$ -- 0
+pop$ -- 7
+preamble$ -- 1
+purify$ -- 2
+quote$ -- 0
+skip$ -- 6
+stack$ -- 0
+substring$ -- 5
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 4
+while$ -- 0
+width$ -- 2
+write$ -- 9
+(There were 4 warnings)
