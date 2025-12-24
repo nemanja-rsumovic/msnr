@@ -1,0 +1,252 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{listings}
+
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1000,                % start line enumeration with line 1000
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{document}
+
+\title{Navigacija kroz nove programske jezike: izazovi, barijere i strategije savladavanja\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
+
+\author{
+	Tamara Baranin 1029/2025,
+	Luka Đekić 1021/2025, \\
+	Petar Magenhajm 1116/2025,
+	Nemanja Ršumović 1016/2025, \\
+	mi251029@alas.matf.bg.ac.rs,
+	mi251021@alas.matf.bg.ac.rs, \\
+	mi251116@alas.matf.bg.ac.rs,
+	mi251016@alas.matf.bg.ac.rs
+}
+
+%\date{9.~april 2015.}
+
+\maketitle
+
+\abstract{
+Ovaj rad analizira izazove sa kojima se suočavaju kako početnici, tako i iskusni programeri u procesu učenja novih programskih jezika i paradigmi. Istraživanje je sprovedeno putem anketnog upitnika na uzorku od 95 ispitanika, pretežno studenata sa višegodišnjim iskustvom u programiranju, stečenim kroz akademsko obrazovanje, profesionalni rad i samostalno učenje. Fokus rada je na ispitivanju povezanosti izmedju godina iskustva, poznavanja većeg broja programskih jezika i paradigmi, kao i subjektivnih poteškoća pri savladavanju nove programske paradigme. Raznolikost ispitanika u pogledu iskustva, obrazovanja i pristupa učenju omogućava sagledavanje istraživanog problema iz više perspektiva, čime se dodatno povećava validnost donetih zaključaka.
+}
+
+\tableofcontents
+
+\newpage
+
+\section{Uvod}
+\label{sec:uvod}
+
+Učenje programskih jezika predstavlja složen i višeslojan proces koji se može značajno razlikovati od osobe do osobe, u zavisnosti od prethodnog znanja, iskustva i individualnih pristupa učenju. Brzina razumevanja, sposobnost dugoročnog pamćenja, kao i stepen sigurnosti u primeni novog programskog jezika zavise od niza faktora, među kojima se posebno izdvajaju višegodišnje iskustvo u programiranju, poznavanje različitih programskih paradigmi, kao i odabrane strategije učenja. Iako prethodno iskustvo i konceptualno razumevanje paradigmi u velikoj meri olakšavaju savladavanje novih jezika, značajan uticaj ima i način na koji se učenje odvija, bilo kroz kurseve, proučavanje zvanične dokumentacije ili rad na konkretnim projektima.
+
+Ipak, izazovi sa kojima se programeri susreću prilikom učenja novih jezika nisu univerzalni, već su u velikoj meri individualni i zavise od više faktora. Upravo iz tog razloga, cilj ovog rada jeste da se, na osnovu većeg broja ispitanika, identifikuju i analiziraju obrasci i korelacije između uočenih prepreka i olakšavajućih faktora u procesu usvajanja različitih programskih jezika i paradigmi. Posebna pažnja posvećena je ispitanicima sa Matematičkog fakulteta, čiji obrazovni program karakteriše snažna teorijska osnova, što potencijalno olakšava apstraktno razumevanje novih koncepata i njihovo povezivanje sa postojećim znanjem. Istovremeno, uključivanje ispitanika sa drugih fakulteta omogućava poređenje različitih obrazovnih pristupa i njihovog uticaja na proces učenja programiranja.
+
+Analiza rezultata ankete ukazuje na to da se kao jedan od ključnih izazova izdvaja učenje programskog jezika koji pripada novoj paradigmi, kao i kvalitet i dostupnost izvora za učenje. Ovi, ali i drugi identifikovani faktori, biće detaljnije ispitani u nastavku rada, sa ciljem da se pruži jasniji uvid u složenost procesa učenja programskih jezika i ponude smernice za efikasnije pristupe učenju u akademskom i samostalnom okruženju.
+
+\section{Pregled osnovnih podataka o ispitanicima}
+
+Ispitanici koji su učcestvovali u anketi dolaze sa različitih fakultetu. Najveći broj ispitanika dolazi sa Matematičkog fakulteta... DODATI... DODATI... DODATI... DODATI... DODATI... DODATI... DODATI... DODATI... DODATI...DODATI... DODATI... DODATI....
+
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.5]{fakulteti.png}
+%	\caption{Raspodele ispitanika po fakultetima}
+%	\label{fig:fakulteti}
+%\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.8]{espb.png}
+	\caption{Položeni ESPB ispitanika koji su studenti}
+	\label{fig:espb}
+\end{figure}
+
+Od 95 ispitanika 92 trenutno studira. RASPODELA PO ESPB...Od 95 ispitanika 92 trenutno studira. RASPODELA PO ESPB...Od 95 ispitanika 92 trenutno studira. RASPODELA PO ESPB...Od 95 ispitanika 92 trenutno studira. RASPODELA PO ESPB...
+Referenca na sliku \ref{fig:espb}.
+
+GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... GODINE-PROGRAMIRANJE... 
+Referenca na sliku \ref{fig:programiranje}.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.8]{programiranje.png}
+	\caption{...}
+	\label{fig:programiranje}
+\end{figure}
+
+\section{Izazovi u učenju programskih jezika}
+Učenje programskih jezika predstavlja zahtevan proces koji podrazumeva razvoj sposobnosti analize problema, apstraktnog razmišljanja i razumevanja toka izvršavanja programa. Mnogi učenici, naročito početnici, pristupaju programiranju bez prethodnog planiranja i analize zadatka, fokusirajući se na pojedinačne linije koda umesto na celokupnu strukturu rešenja. Takav pristup često dovodi do nerazumevanja osnovnih programskih koncepata i otežava identifikaciju i ispravljanje grešaka, zbog čega se sintaksni problemi često javljaju kao posledica dubljih konceptualnih poteškoća.
+\subsection{Uticaj programskih paradigmi na proces učenja}
+Poseban izazov u učenju novih programskih jezika predstavlja savladavanje jezika koji pripadaju drugačijoj programskoj paradigmi. Promena paradigme zahteva prilagođavanje postojećih i usvajanje novih načina razmišljanja o strukturi programa i rešavanju problema. Ovaj proces ne zavisi isključivo od tehničkog znanja ili iskustva, već od sposobnosti da se apstraktni koncepti povežu sa prethodnim znanjem. Zbog toga se problemi u učenju novih paradigmi javljaju i kod iskusnijih programera, a ne samo kod početnika.
+\subsection{Uloga stila učenja i izvora znanja}
+Na uspešnost učenja programskih jezika značajno utiče i stil učenja, kao i kvalitet korišćenih izvora. Pasivni oblici učenja, poput oslanjanja isključivo na teorijska predavanja ili gotove primere, često nisu dovoljni za razvoj dubljeg razumevanja. Suprotno tome, praktičan rad, rešavanje konkretnih problema i eksperimentisanje sa kodom omogućavaju postepeno građenje sigurnosti i povezivanje teorijskih znanja sa njihovom primenom. Kvalitetna dokumentacija, jasni primeri i dostupnost praktičnih zadataka dodatno olakšavaju proces usvajanja novih programskih koncepata.
+\subsection{Završna razmatranja}
+Iako se poteškoće u učenju programskih jezika mogu ispoljavati na različite načine, zajedničko im je to što ne proističu isključivo iz same složenosti jezika, već iz kombinacije kognitivnih zahteva, prethodnog znanja i načina učenja. Razumevanje ovih faktora omogućava sagledavanje učenja programiranja kao postepenog procesa u kome se tehničke veštine razvijaju uporedno sa sposobnošću apstraktnog razmišljanja i rešavanja problema. Upravo iz tog razloga, identifikovanje obrazaca u izazovima i strategijama učenja, na osnovu većeg broja ispitanika, predstavlja važan korak ka unapređenju nastavnih pristupa i efikasnijem usvajanju novih programskih jezika i paradigmi \cite{programming_difficulties}.
+
+\section{Analiza ankete}
+U nastavku će biti prikazana analiza ankete, identifikovani glavni problemi, kao i preporuke za rešavanje tih problema. Anketu je popunilo 95 studenata.
+
+\subsection{Strategije učenja i njihova percipirana efikasnost}
+Rezultati ankete ukazuju da ispitanici preferiraju aktivne strategije učenja, odnosno pristupe koji podrazumevaju neposrednu primenu znanja kroz kodiranje i rešavanje problema. Kada posmatramo koje strategije ispitanici najčešće koriste, dominiraju online resursi i samostalno istraživanje: online kursevi (70), zvanična dokumentacija (62), knjige i skripte (56) i čitanje tuđeg koda (54), dok su male samostalne vežbe (42) i rad na konkretnim projektima (41) takođe vrlo zastupljeni. Sve strategije koje su ispitanici naveli prikazane su na slici \ref{fig:strategije}.
+
+\begin{figure}[h!]
+	\hspace*{-1cm}
+	\includegraphics[scale=0.7]{strategije.png}
+	\caption{Strategije koje se koriste prilikom učenja novog jezika}
+	\label{fig:strategije}
+\end{figure}
+
+Međutim, kada se ispitanici opredeljuju za najefikasniju strategiju, slika postaje još jasnija: najviše glasova dele online kursevi (21) i rad na konkretnim projektima (21). To sugeriše da pasivno ili informativno učenje (npr. samo čitanje ili gledanje) najčešće dobija smisao tek kada se poveže sa praksom i konkretnim zadatkom.
+
+Otvoreni odgovori dodatno potvrđuju ovaj obrazac i naglašavaju vrednost “učenja kroz rad” i iterativnog napredovanja kroz greške:
+\begin{itemize}
+	\item \textit{„Izrada konkretnog projekta“}
+	\item \textit{„Mali projekti, interaktivno učenje“}
+	\item \textit{„Rad na konkretnim primerima i projektima, uz stalno eksperimentisanje i greške iz kojih se uči.“}
+	\item \textit{„Bacanje u vatru i rad na konkretnom projektu više pomaže nego suvoparno učenje sintakse.“}
+	
+\end{itemize}
+Ovi navodi su u skladu sa nalazom da ispitanici prepoznaju značaj iskustvenog učenja, gde se znanje proverava kroz implementaciju, što vremenom povećava sigurnost i sposobnost samostalnog rešavanja problema.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.8]{strategije2.png}
+	\caption{Najefikasnije strategije koje se koriste prilikom učenja novog jezika}
+	\label{fig:strategije2}
+\end{figure}
+
+
+Iako se u odgovorima jasno vidi sklonost ka učenju kroz praktičan rad i izradu projekata, prilikom procene najefikasnije strategije ne dolazi do jasne dominacije nijednog pristupa. Umesto toga, ispitanici su se opredeljivali za različite metode učenja, pri čemu su online kursevi, samostalne vežbe, rad na projektima i korišćenje literature zastupljeni u sličnom obimu. Ovakav nalaz potvrđuje da efikasnost strategije nije apsolutna kategorija, već zavisi od faze učenja, tipa programskog jezika i individualnog načina usvajanja znanja, zbog čega se različite strategije mogu smatrati podjednako korisnim u različitim okolnostima što je prikazano na slici \ref{fig:strategije2}.
+
+\subsection{Barijere i izazovi u učenju novih programskih jezika}
+Da bi se barijere sagledale preciznije, analizirani su različiti aspekti prilagođavanja novom jeziku (sintaksa, paradigma, tipovi, alati/okruženje, ekosistem, dokumentacija). Kada se za svakog ispitanika identifikuje aspekt koji je dobio najveću ocenu težine, dobija se vrlo informativna slika dominantnih prepreka.
+
+Najčešće isticana „najveća barijera” je:
+\begin{itemize}
+	\item Promena programske paradigme
+	\item Alati i razvojno okruženje
+\end{itemize}
+Dok su dokumentacija, sintaksa, ekosistem i tipovi navedeni kao najmanja prepreka.
+
+Ovaj nalaz je važan jer sugeriše da poteškoće nisu samo „jezičke” (sintaksa), već da često nastaju u delu koji zahteva promenu načina razmišljanja (paradigma) ili praktično snalaženje u novom okruženju. To objašnjava zašto prelazak na novi jezik ponekad deluje „teže nego što se očekuje”, čak i kada je sintaksa relativno jednostavna.
+
+
+\begin{table}[H]
+	\centering
+	\caption{Faktori koji predstavljaju prepreku}
+	\label{tab:faktori}
+	\hspace*{-1.9cm}
+	\begin{tabular}{m{6cm}||c|c|c|c|c}
+		
+		\rule{0pt}{0.5cm} & 1 & 2 & 3 & 4 & 5 \\
+		\hline\hline
+		\raisebox{0.3cm}{Razumevanje sintakse} \rule{0pt}{1cm}
+		  & 34(35.8\%) & 38(40\%) & 17(19.9\%) & 5(5.3\%) &  1(1.1\%)  \\
+		\hline
+		\raisebox{0.3cm}{Promena programske paradigme} \rule{0pt}{1cm} & 14(14.7\%) & 22(23.2\%) & 31(32.6\%) & 26(27.4\%) &  2(2.1\%)  \\
+		\hline
+		\raisebox{0.3cm}{Razumevanje sistema tipova} \rule{0pt}{1cm} & 31(32.6\%) & 26(27.4\%) & 26(27.4\%) & 11(11.6\%) &  1(1.1\%)  \\
+		\hline
+		\raisebox{0.3cm}{Alati i razvojno okruženje}  \rule{0pt}{1cm} & 15(15.8\%) & 25(26.3\%) & 29(30.5\%) & 18(18.9\%) &  8(8.4\%)  \\
+		\hline
+		\raisebox{0.3cm}{Biblioteke i ekosistem} \rule{0pt}{1cm} & 8(8.4\%) & 31(32.6\%) & 44(46.3\%) & 8(8.4\%) &  4(4.2\%)  \\
+		\hline
+		\raisebox{0.3cm}{Kvalitet ili dostupnost dokumentacije} \rule{0pt}{1cm} & 20(21.1\%) & 23(24.2\%) & 27(28.4\%) & 21(22.1\%) &  4(4.2\%)  \\
+
+	\end{tabular}
+\end{table}
+
+
+Na osnovu prikazanih rezultata u tabeli \ref{tab:faktori} dat je pregled faktora koji mogu predstavljati prepreku u učenju novih programskih jezika, pri čemu su ispitanici ocenili stepen težine svakog od navedenih aspekata na skali od 1 do 5 (1 predstavlja \textit{„nije predstavljalo problem”}, a 5 \textit{„veoma je predstavljalo problem”}).
+
+
+\section{Informacije prikupljene pitanjima otvorenog karaktera}
+Kako bi se dobio dublji uvid u individualna iskustva, stavove i strategije ispitanika koje nije moguće u potpunosti obuhvatiti zatvorenim pitanjima, u okviru ankete prikupljene su i informacije putem pitanja otvorenog karaktera, čija je analiza predstavljena u nastavku.
+\subsection{Razumevanje paradigmi i algoritama je važnije od samog jezika}
+Jedan deo ispitanika smatra da konkretan programski jezik nije presudan, već da je ključno razumevanje algoritama i paradigmi, jer se na toj osnovi relativno lako prelazi na druge jezike.
+Ovakav stav ukazuje na viši nivo apstrakcije u razmišljanju o programiranju, gde se jezici posmatraju kao alati, a ne kao centralni predmet učenja. Ovo je tipično za iskusnije programere, kod kojih se znanje ne vezuje za sintaksu, već za koncepte.
+
+\subsection{Intenzivno pisanje koda kao osnovni mehanizam učenja}
+Veliki broj ispitanika naglašava da je kontinuirano pisanje koda, često ponavljano u različitim formulacijama, najefikasniji način učenja novog jezika.
+Ovo sugeriše da ispitanici doživljavaju učenje programiranja kao proces koji se dominantno odvija kroz praksu i ponavljanje, pri čemu se greške posmatraju kao sastavni deo učenja, a ne kao neuspeh.
+
+
+\subsection{Učenje kroz poznate zadatke u novom jeziku}
+Pojedini ispitanici savetuju da se novi jezik uči kroz rešavanje problema koji su već ranije rađeni u drugim jezicima.
+Ovakav pristup smanjuje opterećenje pri učenju jer je problem već poznat, pa se pažnja može usmeriti na razlike u sintaksi i specifičnosti njegove paradigme.
+
+Neki ispitanici upozoravaju da ne treba mehanički preslikavati rešenja iz drugih jezika, već učiti kako se problemi rešavaju na način koji je prirodan za dati jezik.
+Ovaj komentar ukazuje na svest o tome da svaki jezik ima sopstvenu filozofiju i namenu, te da površno poznavanje sintakse nije dovoljno za efikasno korišćenje jezika u praksi.
+
+\subsection{Ne postoji univerzalna strategija učenja}
+Pojedini odgovori eksplicitno ističu da ne postoji jedinstvena strategija koja odgovara svima i da svako mora pronaći pristup koji mu lično najviše odgovara.
+Ovaj stav potvrđuje da je efikasnost uslovljena individualnim faktorima i prethodnim iskustvom.
+
+\subsection{Strpljenje, vreme i kontinuitet kao ključni faktori}
+U više odgovora naglašava se potreba da se učenju pristupi strpljivo, bez preskakanja osnova, uz redovan i dugoročan rad.
+Ovi komentari ukazuju na shvatanje učenja programiranja kao sporog, ali stabilnog procesa, u kome se dobre navike stečene na početku dugoročno isplate, naročito pri učenju složenijih jezika i paradigmi.
+
+
+\section{Zaključak}
+\label{sec:zakljucak}
+
+Rezultati ankete jasno ukazuju da proces učenja novih programskih jezika predstavlja složen kognitivni i praktični izazov, ali da se uz odgovarajuće strategije i motivaciju može značajno olakšati. Istraživanje potvrđuje da iskustvo igra ključnu ulogu, ali i da početnici mogu ostvariti napredak ukoliko primene aktivne metode učenja i imaju jasne ciljeve.
+Na osnovu dobijenih podataka može se zaključiti da najveći izazovi u učenju novih programskih jezika nisu tehničke prirode, već način organizacije učenja i pristup samom procesu.
+
+\newpage
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{seminarski} 
+\bibliographystyle{plain}
+
+
+\end{document}
